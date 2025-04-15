@@ -5,13 +5,11 @@ $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $senha = $_POST['senha'] ?? '';
 $lembrar = isset($_POST['lembrar']);
 
-// Verificação básica
 if (!$email || empty($senha)) {
     echo "E-mail e senha são obrigatórios!";
     exit;
 }
 
-// Verificar se o usuário existe no arquivo
 $arquivo = 'usuarios.txt';
 
 if (!file_exists($arquivo)) {

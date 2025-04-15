@@ -8,16 +8,12 @@ if (!$nome || !$email || !$senha) {
     exit;
 }
 
-// Criptografar senha
 $senhaHash = password_hash($senha, PASSWORD_DEFAULT);
 
-// Estrutura para salvar
 $dados = "$nome|$email|$senhaHash" . PHP_EOL;
 
-// Salvar em arquivo
 file_put_contents('usuarios.txt', $dados, FILE_APPEND);
 
-// Redirecionar para login
 header('Location: index.php');
 exit;
 ?>
